@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Block Height</title>
-  <script src="https://cdn.jsdelivr.net/npm/web3@1.3.0/dist/web3.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <head>
+    <title>Block Height</title>
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.3.0/dist/web3.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
-  <script>
-    // Initialize the web3 object using the provider injected by MetaMask
-    const web3 = new Web3(window.ethereum);
+        <script>
+            // Initialize the web3 object using the provider injected by MetaMask
+            const web3 = new Web3(window.ethereum);
 
-    // Wait for the window.ethereum provider to be ready
-    window.ethereum.enable().then(function() {
-      // Get the button element
-      const button = document.getElementById('getBlockHeight');
+            // Wait for the window.ethereum provider to be ready
+            window.ethereum.enable().then(function() {
+            // Get the button element
+            const button = document.getElementById('getBlockHeight');
 
-      // Add a click event listener to the button
-      button.addEventListener('click', function() {
-        // Get the current block height
-        web3.eth.getBlockNumber().then(function(blockHeight) {
-          // Display the block height in the paragraph element
-          document.getElementById('blockHeight').innerText = blockHeight;
-        });
-      });
-    });
-  </script>
-</head>
-<body class="text-center">
-  <h1>Current Block Height</h1>
-  <button class="btn btn-outline-secondary" id="getBlockHeight">Get Block Height</button>
-  <p id="blockHeight"></p>
-</body>
+                // Add a click event listener to the button
+                button.addEventListener('click', function() {
+                    // Get the current block height
+                    web3.eth.getBlockNumber().then(function(blockHeight) {
+                    // Display the block height in the paragraph element
+                    document.getElementById('blockHeight').innerText = blockHeight;
+                    });
+                });
+            });
+        </script>
+    </head>
+    <body class="text-center">
+        <h1>Current Block Height</h1>
+        <button class="btn btn-outline-secondary" id="getBlockHeight">Get Block Height</button>
+        <p id="blockHeight"></p>
+    </body>
 </html>
