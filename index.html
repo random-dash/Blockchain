@@ -9,16 +9,23 @@
 
     // Wait for the window.ethereum provider to be ready
     window.ethereum.enable().then(function() {
-      // Get the current block height
-      web3.eth.getBlockNumber().then(function(blockHeight) {
-        // Display the block height in the paragraph element
-        document.getElementById('blockHeight').innerText = blockHeight;
+      // Get the button element
+      const button = document.getElementById('getBlockHeight');
+
+      // Add a click event listener to the button
+      button.addEventListener('click', function() {
+        // Get the current block height
+        web3.eth.getBlockNumber().then(function(blockHeight) {
+          // Display the block height in the paragraph element
+          document.getElementById('blockHeight').innerText = blockHeight;
+        });
       });
     });
   </script>
 </head>
 <body>
   <h1>Current Block Height</h1>
+  <button id="getBlockHeight">Get Block Height</button>
   <p id="blockHeight"></p>
 </body>
 </html>
