@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Block Height</title>
+  <script src="https://cdn.jsdelivr.net/npm/web3@1.3.0/dist/web3.min.js"></script>
+  <script>
+    // Initialize the web3 object using the provider injected by MetaMask
+    const web3 = new Web3(window.ethereum);
+
+    // Wait for the window.ethereum provider to be ready
+    window.ethereum.enable().then(function() {
+      // Get the current block height
+      web3.eth.getBlockNumber().then(function(blockHeight) {
+        // Display the block height in the paragraph element
+        document.getElementById('blockHeight').innerText = blockHeight;
+      });
+    });
+  </script>
+</head>
+<body>
+  <h1>Current Block Height</h1>
+  <p id="blockHeight"></p>
+</body>
+</html>
