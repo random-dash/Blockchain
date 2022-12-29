@@ -133,20 +133,9 @@
         const button = document.getElementById("getBalance");
 
         button.addEventListener("click", function() {
-            web3.eth.getAccounts((error, accounts) => {
-                if (error) {
-                    console.log(error);
-                } else {
-                    const account = accounts[0];
-                    contract.methods.balanceOf(account).call((error, result) => {
-                        if (error) {
-                            console.log(error);
-                        } else {
-                            document.getElementById("balance").innerHTML = result;
-                        }
-                    });
-                }
-            })
+            contract.methods.balanceOf('0x8c8b2b8c1b8c2b8c3b8c4b8c5b8c6b8c7b8c8b8c').call().then(function(result) {
+                document.getElementById("balance").innerHTML = result;
+            });
         });
 
 
