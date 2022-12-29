@@ -148,14 +148,23 @@
             const button = document.getElementById('transfer');
         
             button.addEventListener('click', function() {
-                contract.methods.transfer(receiverAddress, amount).send({from: contractAddress}, (error, transactionHash) => {
+                //authorize the transaction by user 
+                web3.eth.personal.sign(web3.utils.utf8ToHex("Transfer 10 tokens to 0x15433DA387451F9dE4565280C85506CB71aF9376"), contractAddress, (error, signature) => {
+                    if (error) {
+                        document.getElementById('result').innerHTML = error;
+                    } else {
+                        document.getElementById('result').innerHTML = signature;
+                    }
+                }
+                )
+                /*contract.methods.transfer(receiverAddress, amount).send({from: contractAddress}, (error, transactionHash) => {
                     if (error) {
                         document.getElementById('result').innerHTML = error;
                     } else {
                         document.getElementById('result').innerHTML = transactionHash;
                     }
                 }
-                )
+                )*/
             });
         
     
