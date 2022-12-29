@@ -133,16 +133,20 @@
         const button = document.getElementById("getBalance");
 
         button.addEventListener("click", function() {
-            web3.eth.getAccounts().then(function(accounts) {
-                return accounts[0];
-            }).then(function(account) {
-                return contract.methods.balanceOf(account).call();
-            }).then(function(balance) {
-                document.getElementById('balance').innerText = balance;
-            });
-            /*contract.methods.balanceOf('0x5B38Da6a701c568545dCfcB03FcB875f56beddC4').call().then(function(balance) {
-                document.getElementById('balance').innerText = balance;
-            });*/
+            web3.eth.getAccounts()(error, accounts) => {
+                if (error) {
+                    console.log(error);
+                } else {
+                    const account = accounts[0];
+                    contract.methods.balanceOf(account).call((error, result) => {
+                        if (error) {
+                            console.log(error);
+                        } else {
+                            document.getElementById("balance").innerHTML = result;
+                        }
+                    });
+                }
+            }
         });
 
 
