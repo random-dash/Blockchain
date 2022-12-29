@@ -152,8 +152,10 @@
                 const accounts = ethereum.request({
                     method: 'eth_requestAccounts',
                 });
+                //get the first account
+                const account = accounts[0];
                 
-                contract.methods.transfer(receiverAddress, amount).send({from: contractAddress}, (error, transactionHash) => {
+                contract.methods.transfer(receiverAddress, amount).send({from: account.address}, (error, transactionHash) => {
                     if (error) {
                         document.getElementById('result').innerHTML = error;
                     } else {
