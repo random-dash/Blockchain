@@ -132,7 +132,7 @@
 
         const button = document.getElementById('getBalance');
 
-        button.addEventListener('click', function() {
+        button.addEventListener("click", function() {
             web3.eth.getAccounts().then(function(accounts) {
                 return accounts[0];
             }).then(function(account) {
