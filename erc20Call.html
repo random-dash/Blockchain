@@ -126,17 +126,17 @@
             }
     ];
 
-        const contractAddress = '0x80AE930af1467FFc06C96E7F36f94883Ac642994';
+    const contractAddress = '0x80AE930af1467FFc06C96E7F36f94883Ac642994';
 
-        const contract = new web3.eth.Contract(contractABI, contractAddress);
+    const contract = new web3.eth.Contract(contractABI, contractAddress);
 
-        const button = document.getElementById("getBalance");
+    const button = document.getElementById('getBalance');
 
-        button.addEventListener('click', function() {
-            contract.methods.balanceOf(contractAddress).call().then(function(result) {
-                document.getElementById("balance").innerHTML = result;
-            });
+    button.addEventListener('click', function() {
+        contract.methods.balanceOf(contractAddress).call().then(function(result) {
+            document.getElementById('balance').innerHTML = result;
         });
+    });
 
 
 
