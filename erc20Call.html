@@ -130,7 +130,7 @@
 
         const contract = new web3.eth.Contract(contractABI, contractAddress);
 
-        const button = document.getElementById('getBalance');
+        const button = document.getElementById("getBalance");
 
         button.addEventListener("click", function() {
             web3.eth.getAccounts().then(function(accounts) {
